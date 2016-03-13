@@ -16,6 +16,7 @@ Usage: notify-slack --channel=channel --username=username --icon_emoji=:innocent
 ## Build
 
 ```
+$ echo "https://hooks.slack.com/services/XXXXXXXXX/XXXXXXXXX/xxxxxxxxxxxxxxxxxxxxxxxx" > WEBHOOK_URL
 $ make deps
 $ make build
 ```
