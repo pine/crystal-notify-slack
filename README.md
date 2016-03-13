@@ -1,4 +1,4 @@
-# crystal-notify-slack [![Build Status](https://travis-ci.org/pine613/crystal-notify-slack.svg?branch=master)](https://travis-ci.org/pine613/crystal-notify-slack)
+# crystal-notify-slack [![Build Status](https://travis-ci.org/pine613/crystal-notify-slack.svg?branch=master)](https://travis-ci.org/pine613/crystal-notify-slack) [![Dependency Status](https://shards.rocks/badge/github/pine613/crystal-notify-slack/status.svg)](https://shards.rocks/github/pine613/crystal-notify-slack) [![devDependency Status](https://shards.rocks/badge/github/pine613/crystal-notify-slack/dev_status.svg)](https://shards.rocks/github/pine613/crystal-notify-slack)
 > Slack notify CLI tool
 
 ## Usage
