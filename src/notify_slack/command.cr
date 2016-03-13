@@ -1,4 +1,5 @@
-require "slack"
+require "http"
+require "json"
 require "./parser"
 
 module NotifySlack
@@ -11,14 +12,16 @@ module NotifySlack
     end
 
     def notify(parser : Parser)
-      hook = Slack::IncomingWebHook.new(
-        parser.text,
+      payload = {
+        text: parser.text,
         channel: parser.channel,
         icon_emoji: parser.icon_emoji,
         icon_url: parser.icon_url,
         username: parser.username
-      )
-      hook.send_to(@webhook_url)
+      }
+
+      headers = HTTP::Headers{"Content-Type": "application/json"}
+      HTTP::Client.post @webhook_url, headers, payload.to_json
     end
   end
 end

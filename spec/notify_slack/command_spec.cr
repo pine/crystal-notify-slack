@@ -8,17 +8,13 @@ module NotifySlack
     end
 
     it "notify" do
+      WebMock.stub(:post, "WEBHOOK_URL/")
+        .with(body: "{\"text\":\"TEXT\",\"channel\":\"CHANNEL\",\"icon_emoji\":\":emoji:\",\"icon_url\":\"ICON_URL\",\"username\":\"USERNAME\"}")
+        .to_return(body: "")
+
       parser = MockParser.new
       command = Command.new(webhook_url: "WEBHOOK_URL")
       command.notify(parser)
-
-      instance = Slack::IncomingWebHook.instance
-      instance.text.should eq("TEXT")
-      instance.channel.should eq("CHANNEL")
-      instance.icon_emoji.should eq(":emoji:")
-      instance.icon_url.should eq("ICON_URL")
-      instance.username.should eq("USERNAME")
-      instance.webhook_url.should eq("WEBHOOK_URL")
     end
   end
 end
