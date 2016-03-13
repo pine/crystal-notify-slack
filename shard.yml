@@ -1,0 +1,15 @@
+name: slack_notify
+version: 0.1.0
+
+authors:
+  - Pine Mizune <pinemz@gmail.com>
+
+dependencies:
+  slack:
+    github: manastech/crystal_slack
+    version: ~> 0.2.0
+
+development_dependencies:
+  mocks:
+    github: waterlink/mocks.cr
+    version: 0.9.0

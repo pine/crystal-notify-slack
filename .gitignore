@@ -1,0 +1,7 @@
+/.crystal/
+/.shards/
+/libs/
+shard.lock
+
+/bin/notify-slack
+WEBHOOK_URL
