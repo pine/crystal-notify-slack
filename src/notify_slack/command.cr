@@ -13,7 +13,7 @@ module NotifySlack
       {% if `test -f WEBHOOK_URL && echo "true" || echo "false"`.stringify.chomp == "true" %}
         return {{ `cat WEBHOOK_URL`.stringify.chomp }}
       {% else %}
-        raise "you should export SLACK_WEBHOOK_URL='your slack incomming webhook url'"
+        raise "You should export SLACK_WEBHOOK_URL='your slack incomming webhook url'"
       {% end %}
     end
 
