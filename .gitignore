@@ -3,5 +3,6 @@
 /libs/
 shard.lock
 
-/bin/notify-slack
+/bin/*
+!/bin/.gitkeep
 WEBHOOK_URL

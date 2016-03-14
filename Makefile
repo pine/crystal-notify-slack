@@ -1,5 +1,9 @@
 CRYSTAL := crystal
 
+VERSION := $(shell cat VERSION)
+OS      := $(shell uname -s | tr '[:upper:]' '[:lower:]')
+ARCH    := $(shell uname -m)
+
 .PHONY: default all build
 
 default: all
@@ -14,8 +18,11 @@ deps:
 	shards install
 
 build:
-	crystal build src/notify_slack.cr -o bin/notify-slack
+	$(CRYSTAL) build src/notify_slack.cr -o bin/notify-slack
 
 test:
-	crystal spec -v
+	$(CRYSTAL) spec -v
 
+release:
+	$(CRYSTAL) build --release src/notify_slack.cr -o bin/notify-slack
+	cd bin && tar cvfz notify-slack_$(VERSION)_$(OS)_$(ARCH).tar.gz notify-slack
