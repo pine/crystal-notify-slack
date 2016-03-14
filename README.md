@@ -13,6 +13,13 @@ Usage: notify-slack --channel=channel --username=username --icon_emoji=:innocent
     --help                           Show help
 ```
 
+### Specifiy web hook url at runtime
+
+```bash
+export SLACK_WEBHOOK_URL="https://hooks.slack.com/services/XXXXXXXXX/XXXXXXXXX/xxxxxxxxxxxxxxxxxxxxxxxx"
+notify-slack --channel=channel --username=username --icon_emoji=:innocent: --text=text
+```
+
 ## Build
 
 ```
