@@ -13,14 +13,9 @@ clean:
 deps:
 	shards install
 
-build: prepare
+build:
 	crystal build src/notify_slack.cr -o bin/notify-slack
 
-test: prepare
+test:
 	crystal spec -v
-
-prepare:
-	if [ ! -f "WEBHOOK_URL" ]; then \
-		touch WEBHOOK_URL; \
-	fi
 

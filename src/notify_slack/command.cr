@@ -4,11 +4,20 @@ require "./parser"
 
 module NotifySlack
   class Command
-    WEBHOOK_URL = {{ `cat WEBHOOK_URL`.stringify.chomp }}
-
     getter webhook_url : String
 
-    def initialize(@webhook_url : String = WEBHOOK_URL)
+    private def self.detect_webhook_url : String
+      if ENV.has_key?("SLACK_WEBHOOK_URL")
+        return ENV["SLACK_WEBHOOK_URL"]
+      end
+      {% if `test -f WEBHOOK_URL && echo "true" || echo "false"`.stringify.chomp == "true" %}
+        return {{ `cat WEBHOOK_URL`.stringify.chomp }}
+      {% else %}
+        raise "you should export SLACK_WEBHOOK_URL='your slack incomming webhook url'"
+      {% end %}
+    end
+
+    def initialize(@webhook_url : String = detect_webhook_url)
     end
 
     def notify(parser : Parser)
