@@ -32,5 +32,6 @@ test:
 	$(CRYSTAL) spec -v
 
 release:
+	echo > WEBHOOK_URL
 	$(CRYSTAL) build --release $(CRFLAGS) src/notify_slack.cr -o bin/notify-slack
 	cd bin && tar cvfz notify-slack_$(VERSION)_$(OS)_$(ARCH).tar.gz notify-slack
