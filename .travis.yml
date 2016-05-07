@@ -11,7 +11,7 @@ env:
 
 install:
   - rm -f .crystal-version
-  - curl -L https://raw.github.com/pine613/crenv/master/install.sh | bash
+  - curl -L https://raw.github.com/pine/crenv/master/install.sh | bash
   - eval "$(crenv init -)"
   - crenv install $CRYSTAL_VERSION
   - crenv global $CRYSTAL_VERSION
