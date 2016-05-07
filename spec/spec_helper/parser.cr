@@ -19,6 +19,7 @@ module NotifySlack
       @username = "USERNAME"
       @icon_emoji = ":emoji:"
       @icon_url = "ICON_URL"
+      @help_flag = false
     end
   end
 end

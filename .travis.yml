@@ -7,6 +7,7 @@ env:
   matrix:
     - CRYSTAL_VERSION=0.13.0
     - CRYSTAL_VERSION=0.14.1
+    - CRYSTAL_VERSION=0.15.0
 
 install:
   - rm -f .crystal-version
