@@ -6,7 +6,7 @@ module NotifySlack
   class Command
     getter webhook_url : String
 
-    private def self.detect_webhook_url : String
+    private def detect_webhook_url : String
       if ENV.has_key?("SLACK_WEBHOOK_URL")
         return ENV["SLACK_WEBHOOK_URL"]
       end

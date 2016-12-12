@@ -3,6 +3,15 @@ require "../spec_helper"
 module NotifySlack
   describe Command do
     it "new" do
+      tmp, ENV["SLACK_WEBHOOK_URL"] = ENV["SLACK_WEBHOOK_URL"]?, "WEBHOOK_URL"
+
+      command = Command.new()
+      command.webhook_url.should eq("WEBHOOK_URL")
+
+      ENV["SLACK_WEBHOOK_URL"] = tmp
+    end
+
+    it "new (with args)" do
       command = Command.new(webhook_url: "WEBHOOK_URL")
       command.webhook_url.should eq("WEBHOOK_URL")
     end
