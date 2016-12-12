@@ -22,14 +22,14 @@ module NotifySlack
 
     def notify(parser : Parser)
       payload = {
-        text: parser.text,
-        channel: parser.channel,
+        text:       parser.text,
+        channel:    parser.channel,
         icon_emoji: parser.icon_emoji,
-        icon_url: parser.icon_url,
-        username: parser.username
+        icon_url:   parser.icon_url,
+        username:   parser.username,
       }
 
-      headers = HTTP::Headers{"Content-Type": "application/json"}
+      headers = HTTP::Headers{"Content-Type" => "application/json"}
       HTTP::Client.post @webhook_url, headers, payload.to_json
     end
   end

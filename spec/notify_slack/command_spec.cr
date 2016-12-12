@@ -9,8 +9,8 @@ module NotifySlack
 
     it "notify" do
       WebMock.stub(:post, "WEBHOOK_URL/")
-        .with(body: "{\"text\":\"TEXT\",\"channel\":\"CHANNEL\",\"icon_emoji\":\":emoji:\",\"icon_url\":\"ICON_URL\",\"username\":\"USERNAME\"}")
-        .to_return(body: "")
+             .with(body: "{\"text\":\"TEXT\",\"channel\":\"CHANNEL\",\"icon_emoji\":\":emoji:\",\"icon_url\":\"ICON_URL\",\"username\":\"USERNAME\"}")
+             .to_return(body: "")
 
       parser = MockParser.new
       command = Command.new(webhook_url: "WEBHOOK_URL")

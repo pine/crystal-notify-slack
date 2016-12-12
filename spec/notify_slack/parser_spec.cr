@@ -30,7 +30,7 @@ module NotifySlack
       parser.parse(requires + [
         "--username=USERNAME",
         "--icon_emoji=:emoji:",
-        "--icon_url=URL"
+        "--icon_url=URL",
       ])
 
       parser.channel.should eq("CHANNEL")
