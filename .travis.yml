@@ -5,9 +5,8 @@ env:
   global:
     - PATH=$HOME/.crenv/bin:$PATH
   matrix:
-    - CRYSTAL_VERSION=0.13.0
-    - CRYSTAL_VERSION=0.14.1
-    - CRYSTAL_VERSION=0.15.0
+    - CRYSTAL_VERSION=0.20.0
+    - CRYSTAL_VERSION=0.20.1
 
 install:
   - rm -f .crystal-version
